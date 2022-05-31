@@ -1,0 +1,19 @@
+$mobile-width: 600px;
+$tablet-width: 1024px;
+$desktop-width: 1420px;
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  gap: 20px;
+  margin-bottom: 3rem;
+
+  @media (max-width: $tablet-width) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  &__loadmore {
+    text-align: center;
+  }
+}

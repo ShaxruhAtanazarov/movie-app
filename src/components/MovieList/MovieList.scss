@@ -1,0 +1,21 @@
+$mobile-width: 600px;
+$tablet-width: 1024px;
+$desktop-width: 1420px;
+
+.movie-list {
+  .swiper-slide {
+    width: 16%;
+
+    @media (max-width: $desktop-width) {
+      width: 20%;
+    }
+
+    @media (max-width: $tablet-width) {
+      width: 28%;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 60%;
+    }
+  }
+}

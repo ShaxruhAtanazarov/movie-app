@@ -1,0 +1,79 @@
+$border-radius: 30px;
+$mobile-width: 600px;
+$tablet-width: 1024px;
+$desktop-width: 1420px;
+
+.movie-card {
+  position: relative;
+  margin-bottom: 1rem;
+
+  .movie-card__btn {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+
+    svg path {
+      stroke: #fff !important;
+    }
+  }
+
+  &__banner {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 150%;
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.5);
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      transform: scale(1);
+      object-fit: cover;
+    }
+
+    $desktop-width-upper: $desktop-width + 120;
+
+    @media (max-width: $desktop-width-upper) {
+      padding-bottom: 140%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: #000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  h3 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    word-break: break-all;
+    margin-top: 10px;
+  }
+
+  &:hover &__banner::before {
+    opacity: 0.8;
+  }
+
+  &:hover .btn {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &:hover &__banner {
+    border-color: rgba($color: red, $alpha: 0.5);
+  }
+}

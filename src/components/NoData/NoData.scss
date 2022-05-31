@@ -1,0 +1,21 @@
+.no-data {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    max-width: 300px;
+    width: 100%;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    color: red;
+
+    span {
+      color: #fff;
+    }
+  }
+}

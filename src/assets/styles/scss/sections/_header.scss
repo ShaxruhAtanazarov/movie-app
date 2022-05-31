@@ -1,0 +1,109 @@
+.header {
+  width: 100%;
+  height: $header-height;
+
+  top: 0;
+  left: 0;
+  z-index: 99;
+  position: fixed;
+
+  transition: height 0.3s ease, background-color 0.3s ease;
+
+  &.shrink {
+    height: $header-shrink-height;
+    background-color: $body-bg-color;
+  }
+
+  &__wrap {
+    height: 100%;
+    padding: 0 2rem;
+    @include flex(center, space-between);
+
+    @include mobile {
+      @include flex(flex-end, center);
+    }
+  }
+
+  &__logo {
+    width: max-content;
+
+    img {
+      width: 50px;
+      height: 50px;
+
+      @include tablet {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include mobile {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  &__nav {
+    @include flex(center, unset);
+
+    & > * ~ * {
+      margin-left: 2rem;
+    }
+
+    li {
+      padding: 5px 0;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: capitalize;
+
+      font-size: 1.3rem;
+      position: relative;
+
+      &::after {
+        content: "";
+
+        left: 50%;
+        bottom: 0;
+        position: absolute;
+
+        width: 0;
+        height: 2px;
+
+        transform: translateX(-50%);
+        transition: width 0.5s ease;
+        background-color: $main-color;
+      }
+
+      &.active::after,
+      &:hover::after {
+        width: 100%;
+      }
+
+      &:hover a {
+        color: $main-color;
+        transition: 0.3s ease;
+      }
+    }
+
+    @include mobile {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 5rem;
+      width: 100%;
+      background-color: $body-bg-color;
+      padding: 0 2rem;
+      box-shadow: $box-shadow;
+
+      @include flex(center, space-between);
+
+      & > * ~ * {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include mobile {
+    height: 4rem;
+  }
+}
